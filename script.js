@@ -7,6 +7,11 @@ for (let i = 0; i < 16; i++) {
     for (let j = 0; j < 16; j++) {
         const colDiv = document.createElement("div");
         colDiv.classList.add("col-block");
+        
+        colDiv.addEventListener("mouseenter", () => {
+            colDiv.classList.add("highlight");
+        })
+
         rowDiv.appendChild(colDiv);
     }
 

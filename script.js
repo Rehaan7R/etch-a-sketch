@@ -1,6 +1,15 @@
 const container = document.querySelector(".container");
 const button = document.querySelector(".grid-btn");
+
 let isDrawing = false;
+
+function randomColour() {
+    const red = Math.floor(Math.random() * 256);
+    const green = Math.floor(Math.random() * 256);
+    const blue = Math.floor(Math.random() * 256);
+
+    return `rgb(${red}, ${green}, ${blue})`;
+}
 
 function createGrid(size) {
     container.innerHTML = "";
@@ -15,12 +24,12 @@ function createGrid(size) {
             
             colDiv.addEventListener("mousedown", () => {
                 isDrawing = true;
-                colDiv.classList.add("highlight");
+                colDiv.style.backgroundColor = randomColour();
             })
 
             colDiv.addEventListener("mouseenter", () => {
                 if (isDrawing) {
-                    colDiv.classList.add("highlight");
+                    colDiv.style.backgroundColor = randomColour();
                 }
             })
 

@@ -21,14 +21,27 @@ function createGrid(size) {
         for (let j = 0; j < size; j++) {
             const colDiv = document.createElement("div");
             colDiv.classList.add("col-block");
+            colDiv.style.opacity = 0;
+            let interactions = 0;
             
             colDiv.addEventListener("mousedown", () => {
                 isDrawing = true;
+
+                if (interactions < 10) {
+                    interactions++;
+                }
+
+                colDiv.style.opacity = interactions / 10;
                 colDiv.style.backgroundColor = randomColour();
             })
 
             colDiv.addEventListener("mouseenter", () => {
                 if (isDrawing) {
+                    if (interactions < 10) {
+                        interactions++;
+                    }
+                    
+                    colDiv.style.opacity = interactions / 10;
                     colDiv.style.backgroundColor = randomColour();
                 }
             })

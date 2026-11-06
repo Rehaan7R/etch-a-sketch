@@ -27,14 +27,11 @@ body {
     flex-direction: column;
     width: 70vh;
     height: 70vh;
+    background-color: rgb(233, 233, 233);
 }
 
 .row-block {
     display: flex;
-}
-
-.col-block {
-    background-color: rgb(233, 233, 233);
 }
 
 .row-block, .col-block {

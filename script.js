@@ -1,19 +1,46 @@
 const container = document.querySelector(".container");
+const button = document.querySelector(".grid-btn");
 
-for (let i = 0; i < 16; i++) {
-    const rowDiv = document.createElement("div");
-    rowDiv.classList.add("row-block");
+function createGrid(size) {
+    container.innerHTML = "";
+    
+    for (let i = 0; i < size; i++) {
+        const rowDiv = document.createElement("div");
+        rowDiv.classList.add("row-block");
 
-    for (let j = 0; j < 16; j++) {
-        const colDiv = document.createElement("div");
-        colDiv.classList.add("col-block");
-        
-        colDiv.addEventListener("mouseenter", () => {
-            colDiv.classList.add("highlight");
-        })
+        for (let j = 0; j < size; j++) {
+            const colDiv = document.createElement("div");
+            colDiv.classList.add("col-block");
+            
+            colDiv.addEventListener("mouseenter", () => {
+                colDiv.classList.add("highlight");
+            })
 
-        rowDiv.appendChild(colDiv);
+            rowDiv.appendChild(colDiv);
+        }
+
+        container.appendChild(rowDiv);
+    }
+}
+
+function isSizeValid (size) {
+    if (size < 1 || size > 100) {
+        window.alert("Please input a grid size between 1 and 100");
+        return false;
+    } else if (!Number.isInteger(size)) {
+        window.alert("Please enter a whole number between 1 and 100");
+        return false;
     }
 
-    container.appendChild(rowDiv);
+    return true;
 }
+
+createGrid(16);
+
+button.addEventListener("click", () => {
+    const gridSize = Number(prompt("Please input a number from 1 to 100 for the grid size"));
+
+    if (isSizeValid(gridSize)) {
+        createGrid(gridSize);
+    }
+})

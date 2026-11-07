@@ -34,6 +34,11 @@ body {
     display: flex;
 }
 
+.col-block {
+    user-select: none;
+    -webkit-user-select: none;
+}
+
 .row-block, .col-block {
     flex: 1;
 }

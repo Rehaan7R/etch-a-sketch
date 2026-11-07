@@ -22,6 +22,7 @@ function createGrid(size) {
             const colDiv = document.createElement("div");
             colDiv.classList.add("col-block");
             colDiv.style.opacity = 0;
+            
             let interactions = 0;
             
             colDiv.addEventListener("mousedown", () => {

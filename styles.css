@@ -25,8 +25,8 @@ body {
 .container {
     display: flex;
     flex-direction: column;
-    width: 70vh;
-    height: 70vh;
+    width: 80vh;
+    height: 80vh;
     background-color: rgb(233, 233, 233);
 }
 
@@ -36,8 +36,4 @@ body {
 
 .row-block, .col-block {
     flex: 1;
-}
-
-.highlight {
-    background-color: rgb(0, 132, 255);
 }
